@@ -1,0 +1,12 @@
+#standard matlab gitignore
+*.m~
+
+*.avi
+*.mat
+*.dat
+
+*.swp
+*.fig
+
+PROPACK/
+
