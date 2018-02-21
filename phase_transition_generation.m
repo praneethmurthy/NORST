@@ -29,16 +29,17 @@ theta_degree = 15;
 t_reprocs_off = 0;
 %t_ncrpca = 0;
 
-outfracrowrange = [0.01, 0.3, 0.8];
-rrange = [3, 10, 30];
+%outfracrowrange = [0.01, 0.3, 0.6];
+outfracrowrange = 0.01;
+rrange = [3, 5];
+%rrange = [3, 10, 30];
+%rrange = ceil(linspace(3, 30, 5));
 
 % PhaseTransNORST = zeros(length(outfracrowrange), length(rrange));
 % PhaseTransAltProj = zeros(length(outfracrowrange), length(rrange));
 
 PhaseTransNORST = zeros(length(outfracrowrange), length(rrange), MC);
 PhaseTransAltProj = zeros(length(outfracrowrange), length(rrange), MC);
-
-
 
 ttall = tic;
 
@@ -54,7 +55,7 @@ for bb  = 1 : length(outfracrowrange)
         %         temp_SE_reprocs_off = zeros(MC, ceil((t_max- t_train)/alpha) - 1);
         %         temp_SE_ncrpca = zeros(MC, ceil((t_max- t_train)/alpha) - 1);
         parfor mc = 1 : MC
-            fprintf('Monte-Carlo iteration %d\t b0 %.1f\t r %d', mc, b0, r_0);
+            fprintf('Monte-Carlo iteration %d\t b0 %.2f\t r %d', mc, b0, r_0);
             
             %%%Generating support set and sparse vectors
             T = zeros(n, t_max);
@@ -156,8 +157,8 @@ for bb  = 1 : length(outfracrowrange)
 %             temp_SE_NORST(mc) = mean(temp_SE_reprocs_off);
 %             temp1_SE_ncrpca(mc) = mean(temp_SE_ncrpca);
             
-            PhaseTransNORST(bb, rr, mc) = mean(temp_SE_reprocs_off);
-            PhaseTransAltProj(bb, rr, mc) = mean(temp_SE_ncrpca);
+            PhaseTransNORST(rr, bb, mc) = mean(temp_SE_reprocs_off);
+            PhaseTransAltProj(rr, bb, mc) = mean(temp_SE_ncrpca);
             
             
         end
