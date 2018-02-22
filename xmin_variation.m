@@ -15,7 +15,7 @@ miss_s = 0;
 miss_s_pca = 0;
 alpha = 300;
 f = 100;
-MC = 1;
+MC = 100;
 
 sigma = 1e-5;
 theta_degree = 15;
@@ -302,39 +302,41 @@ t_reprocs_pca = t_reprocs_pca / (MC * t_max)
 t_reprocs_off = t_reprocs_off / (MC * t_max)
 % t_ncrpca = t_ncrpca / (MC * t_max)
 
-
-figure;
-subplot(311);
-imagesc(S);
-subplot(312);
-imagesc(S_hat_pca);
-subplot(313);
-imagesc(S_hat_off);
-
-%t_calc_pca = [ alpha - 1 : alpha : t_max - t_train];
-
-stry ='$$SE(\hat{P}, P)$$';
-strx = '$$t$$';
-figure
-plot(t_calc_pca, log10(temp_SE_reprocs_pca(1, :)), 'bs--', 'LineWidth', 2)
-hold
-plot(t_calc_pca, log10(temp_SE_reprocs_pca(2, :)), 'gs--', 'LineWidth', 2)
-plot(t_calc_pca, log10(temp_SE_reprocs_pca(3, :)), 'ks--', 'LineWidth', 2)
-plot(t_calc_pca, log10(temp_SE_reprocs_off(1, :)), 'b^-', 'LineWidth', 2)
-plot(t_calc_pca, log10(temp_SE_reprocs_off(2, :)), 'g^-', 'LineWidth', 2)
-plot(t_calc_pca, log10(temp_SE_reprocs_off(3, :)), 'k^-', 'LineWidth', 2)
-plot(t_calc_pca, log10(temp_SE_ncrpca(1, :)), 'bd-.', 'LineWidth', 2)
-plot(t_calc_pca, log10(temp_SE_ncrpca(2, :)), 'gd-.', 'LineWidth', 2)
-plot(t_calc_pca, log10(temp_SE_ncrpca(3, :)), 'kd-.', 'LineWidth', 2)
+save('xmin_variation_mc100.mat')
 
 
-% plot(t_calc, log10(err_SE_ncrpca), 'g', 'LineWidth', 2)
-xlabel(strx, 'Interpreter', 'LaTeX', 'FontSize', 14);
-ylabel(stry, 'Interpreter', 'LaTeX', 'FontSize', 14);
-axis tight
-legend('NORST x_{min} = 0.5', 'NORST x_{min} = 5', 'NORST x_{min} = 10', ...
-    'Offline x_{min} = 0.5', 'Offline x_{min} = 5', 'Offline x_{min} = 10', ...
-    'AltProj x_{min} = 0.5', 'AltProj x_{min} = 5', 'AltProj x_{min} = 10');
+% figure;
+% subplot(311);
+% imagesc(S);
+% subplot(312);
+% imagesc(S_hat_pca);
+% subplot(313);
+% imagesc(S_hat_off);
+% 
+% %t_calc_pca = [ alpha - 1 : alpha : t_max - t_train];
+% 
+% stry ='$$SE(\hat{P}, P)$$';
+% strx = '$$t$$';
+% figure
+% plot(t_calc_pca, log10(temp_SE_reprocs_pca(1, :)), 'bs--', 'LineWidth', 2)
+% hold
+% plot(t_calc_pca, log10(temp_SE_reprocs_pca(2, :)), 'gs--', 'LineWidth', 2)
+% plot(t_calc_pca, log10(temp_SE_reprocs_pca(3, :)), 'ks--', 'LineWidth', 2)
+% plot(t_calc_pca, log10(temp_SE_reprocs_off(1, :)), 'b^-', 'LineWidth', 2)
+% plot(t_calc_pca, log10(temp_SE_reprocs_off(2, :)), 'g^-', 'LineWidth', 2)
+% plot(t_calc_pca, log10(temp_SE_reprocs_off(3, :)), 'k^-', 'LineWidth', 2)
+% plot(t_calc_pca, log10(temp_SE_ncrpca(1, :)), 'bd-.', 'LineWidth', 2)
+% plot(t_calc_pca, log10(temp_SE_ncrpca(2, :)), 'gd-.', 'LineWidth', 2)
+% plot(t_calc_pca, log10(temp_SE_ncrpca(3, :)), 'kd-.', 'LineWidth', 2)
+% 
+% 
+% % plot(t_calc, log10(err_SE_ncrpca), 'g', 'LineWidth', 2)
+% xlabel(strx, 'Interpreter', 'LaTeX', 'FontSize', 14);
+% ylabel(stry, 'Interpreter', 'LaTeX', 'FontSize', 14);
+% axis tight
+% legend('NORST x_{min} = 0.5', 'NORST x_{min} = 5', 'NORST x_{min} = 10', ...
+%     'Offline x_{min} = 0.5', 'Offline x_{min} = 5', 'Offline x_{min} = 10', ...
+%     'AltProj x_{min} = 0.5', 'AltProj x_{min} = 5', 'AltProj x_{min} = 10');
 %title('NORST')
 
 
