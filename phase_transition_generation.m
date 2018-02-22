@@ -14,12 +14,12 @@ t_max = 11000;
 t_train = 100;
 alpha = 300;
 f = 100;
-MC = 1;
+MC = 100;
 
 t_calc_pca = [alpha - 1 : alpha : t_max - t_train];
 
-outfracrowrange = linspace(0.01, 0.7, 3);
-rrange = ceil(linspace(3, 30, 3));
+outfracrowrange = linspace(0.01, 0.7, 10);
+rrange = ceil(linspace(3, 30, 10));
 
 PhaseTransNORST = zeros(length(outfracrowrange), length(rrange), MC);
 PhaseTransAltProj = zeros(length(outfracrowrange), length(rrange), MC);
@@ -121,6 +121,6 @@ end
 fprintf('\n')
 toc(ttall)
 
-%save('phase_trans_b0_r_LF.mat');
+save('phase_trans_b0_r_LF.mat');
 
 % save('data_TIT/phase_trans_b0_r.mat');
