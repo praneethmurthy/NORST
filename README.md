@@ -3,7 +3,7 @@ This folder contains the code accompanying pre-print.
 [1] "Nearly Optimal Robust Subspace Tracking", Praneeth Narayanamurthy and Namrata Vaswani, arXiv:1712.06061, 2017.
 
 List of main files:
-1. DemoFB.m - Wrapper containing the real video foreground background separation. The sparse recovery step here uses ell-1 minimization. 
+1. DemoFB.m - Wrapper containing the real video foreground background separation. 
 2. DemoDynRPCA.m - Wrapper containing the simulated data experiments. 
 3. NORST - main function which implements the NORST algorithm for subspace tracking.
 4. Offline_NORST - main function which implements the Offline Norst variant for dynamic (and static) Robust PCA

@@ -15,7 +15,7 @@ miss_s = 0;
 miss_s_pca = 0;
 alpha = 300;
 f = 100;
-MC = 100;
+MC = 3;
 
 xminBnd = [.5, 5, 10];
 temp_SE_reprocs_pca = zeros(length(xminBnd), ceil((t_max- t_train)/alpha) - 1, MC);
@@ -45,7 +45,7 @@ for mc = 1 : MC
         s_train = s/5;
         alpha1_train = alpha1/2;
         beta = ceil(b0 * alpha1);
-        x_max = x_min;
+        x_max = 20;
         %x_min = 10;
         alpha_train = alpha1;
         num_changes = floor((t_max - t_train)/beta);
@@ -238,4 +238,4 @@ end
 fprintf('\n')
 toc(ttall)
 
-save('data_TIT/xmin_variation_mc100.mat')
+save('data_TIT/xmin_var_mc3_xmaxhigh.mat')
