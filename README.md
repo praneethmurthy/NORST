@@ -1,6 +1,6 @@
 This folder contains the code accompanying paper.
 
-[1] "Nearly Optimal Robust Subspace Tracking", Praneeth Narayanamurthy and Namrata Vaswani, arXiv:1712.06061, 2017.
+[1] "Nearly Optimal Robust Subspace Tracking", Praneeth Narayanamurthy and Namrata Vaswani, ICML, 2018 (long version available at https://arxiv.org/abs/1712.06061).
 
 List of main files:
 1. DemoFB.m - Wrapper containing the real video foreground background separation. 
